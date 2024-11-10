@@ -1,0 +1,522 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.5;
+  background-color: whitesmoke;
+  color: #212121;
+  transition: padding-color 0.3s; 
+}
+
+header, footer, main {
+  padding: 20px;
+  
+}
+
+/* Header styles */
+header h1 {
+  font-size: 1.5rem;
+  margin-bottom: 10px 0;
+  text-align: center;
+  text-decoration: underline;
+  padding: 20px;
+}
+
+
+header h1 a:hover {
+  color: #0056b3;
+}
+
+header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  text-align: center;
+
+}
+
+a[href="#main"] {
+  position:absolute;
+  top: 20px;
+  right: 20px;
+  margin: auto;
+  z-index: 999;
+  background-color: #ffffff;
+  border: 1px solid #3399cc;
+  border-radius: 4px;
+  padding: 3px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* Sidebar styles */
+nav {
+  margin-top: 10px;
+  /* position: fixed; */
+  /* top: 0; */
+  /* left: 0; */
+  width: 100%; 
+  /* height: 100%; */
+  background: #3399cc;
+  overflow-y: auto;
+  transition: width 0.3s; 
+  z-index: 999; 
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+nav .hamburger {
+  display: none;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* height: 60%; */
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+nav ul {
+  padding: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  /* align-items: flex-start; */
+  list-style: none;
+  justify-content:space-around;
+}
+
+nav ul li {
+  /* width: 100%; */
+  margin: 0;
+  /* position: relative; */
+}
+
+nav ul li a {
+  display: block;
+  /* width: 100%; */
+  padding: 15px 20px;
+  color: white;
+}
+
+nav ul a:hover {
+  background-color: #14244b;
+}
+
+
+
+/* Expanded width */
+/* nav:hover {
+  width: 200px; 
+} */
+/* Hide hamburger icon when expanded */
+/* nav:hover .hamburger {
+  display: none; 
+} */
+/* Show menu when expanded */
+/* nav:hover ul {
+  display: flex; 
+} */
+
+/* nav:hover ~ main,
+nav:hover ~ header,
+nav:hover ~ footer {
+  padding-left: 200px; 
+} */
+
+@media (max-width: 768px) {
+  /* nav {
+    width: 200px;
+  } */
+  /* Hide hamburger icon on larger screens */
+  nav .hamburger {
+    display: block; 
+  }
+/* Always show the menu on larger screens */
+  nav ul {
+    display: none; 
+    flex-direction: column;
+    width:100%;
+  }
+
+  /* body {
+    padding-left: 200px;
+  } */
+
+  /* nav:hover ~ main,
+  nav:hover ~ header,
+  nav:hover ~ footer {
+    padding-left: 200px;
+  } */
+  /* nav.active ul {
+    display: flex;
+    flex-direction: column;
+  } */
+  nav.show ul {
+    display: flex;
+    flex-direction:column
+}
+}
+
+/* dropdown menu styles */
+/* Add position relative to .dropdown */
+.dropdown {
+  position: relative;
+}
+/* style dropdown nav menu items */
+.dropdown-menu {
+  display: none; 
+  position: absolute; 
+  left: 50%;
+  top: 0;
+  background: white; 
+  z-index: 1000;
+  padding: 0;
+  margin:0;
+  list-style:none;
+  min-width:200px;
+}
+
+.dropdown-menu li {
+  width: 100px;
+}
+
+.dropdown-menu a {
+  padding: 10px;
+  background: white;
+  color: black;
+  display:block;
+}
+.dropdown-menu a:hover {
+  background: darkgrey;
+}
+.dropdown:hover .dropdown-menu {
+  display: block; 
+}
+
+/* Main and section styles */
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+main section {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  margin: auto;
+  max-width: 60%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+}
+main section:hover {
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.summary {
+  background: #ffffff;
+  outline-style: double;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.summary:hover {
+  background-color: #f1f1f1;
+}
+
+span.athlete:hover {
+  background-color:aliceblue
+}
+
+h2 {
+  font-style: italic;
+  text-align: center;
+  padding: 10px;
+  background: #f6f6f6;
+  border-radius: 4px;
+  margin:auto;
+  margin-bottom: 10px;
+}
+
+/* Athlete and gallery styles */
+.athlete {
+  padding: 3px;
+  margin: auto;
+  border-radius: 8px;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+}
+
+.gallery img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  margin-bottom: 20px;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: lightgray;
+  z-index: 1;
+  font-weight: bold;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+tr {
+  background-color: white;
+}
+/* Alternate row colors for readability */
+tr:nth-child(odd) {
+  background-color: #e9f5fb;
+}
+/* hover effect for table rows */
+tr:hover {
+  background-color: lightgrey;
+}
+
+
+
+/* Individual results styles */
+#individual-results {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;  
+  align-items: start;
+  max-width: 80%;
+  margin: auto;
+  margin-top: 20px;
+  background-color: #e9f5fb;
+  outline-style: double;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  margin-top: 20 px;
+}
+  
+
+.athlete figure {
+  display: block;
+  align-items: center;
+
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+}
+.athlete dl {
+  display: inline-grid;
+  grid-template-columns: auto 1fr; 
+  gap: 5px;
+  justify-content: flex-start; 
+  align-items: center; 
+  padding-bottom: 10px;
+}
+
+.athlete img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 4px solid #14244b;
+}
+
+.athlete dl dt, .athlete dl dd {
+  margin: 1px 0;
+  margin-left:5px;
+  text-align: left;
+  padding: 5px;
+}
+
+figcaption {
+  text-align: center;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+/* layout for mobile */
+
+@media (max-width: 768px) {
+  table, tbody, tr, th, td {
+    display: revert;
+    width: 100%;
+  }
+  td {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    position: relative;
+    text-align: left;
+  }
+  td::before {
+    content: attr(data-label); /* Displays data-label attribute */
+    font-weight: bold;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  td:first-of-type {
+    border-top: none;
+  }
+  tr:focus-within {
+    background-color: #14244b;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+
+  .gallery img {
+    display: block;
+  }
+  
+}
+
+/* Animation styles */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.athlete img,
+.gallery img {
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+/* Animation styles */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Applying Animations */
+body,
+header, footer, main, section,
+.athlete, table {
+  animation: fadeIn 1s ease-in-out, slideUp 0.5s ease-in-out;
+}
+
+/* Prefers-reduced-motion query */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  a[href="#main"],
+  main section,
+  header h1,
+  header h2,
+  .athlete,
+  .athlete img,
+  figcaption,
+  table,
+  tr,
+  th,
+  td {
+    transition: none !important;
+  }
+}
+
+/* Prefers-color-scheme query */
+/* @media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #ffffff;
+  }
+
+  header h1,
+  header h2,
+  a[href="#main"],
+  main section,
+  summary,
+  .athlete,
+  table,
+  th,
+  td,
+  figcaption {
+    background-color: #212121;
+    color: #ffffff;
+    border-color: #424242;
+  }
+
+  a[href="#main"] {
+    background-color: #3399cc;
+    color: #ffffff;
+    border-color: #3399cc;
+  }
+
+  a[href="#main"]:hover {
+    background-color: #ffffff;
+    color: #3399cc;
+  }
+
+  th {
+    background-color: #424242;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #383838;
+  }
+
+  tr:hover {
+    background-color: #282828;
+  }
+
+  main section:hover {
+    background-color: #333333;
+  }
+
+  .athlete:hover {
+    background-color: #333333;
+  }
+
+  .athlete img:hover {
+    transform: scale(1.05);
+  }
+} */
+
+/* Footer styles */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #f6f6f6;
+}

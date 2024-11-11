@@ -33,37 +33,37 @@ def csv_to_html(csv_filename, output_folder):
 <link rel="stylesheet" href="../css/styles.css">
 </head>
    <body>
-   <a href = "#main">Skip to Main Content</a>
+   <a href = "#main" tabindex ="0">Skip to Main Content</a>
    <nav id="navbar">
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <div class="hamburger" onclick="toggleMenu()" tabindex="0" aria-label="Toggle navigation menu">☰</div>
 
      <ul>
-        <li><a href="../index.html">Home Page</a></li>
-        <li><a href="#summary">Summary</a></li>
-        <li><a href="#team-results">Team Results</a></li>
-        <li><a href="#individual-results">Individual Results</a></li>
-        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="../index.html" tabindex="0">Home Page</a></li>
+        <li><a href="#summary" tabindex="0">Summary</a></li>
+        <li><a href="#team-results" tabindex="0">Team Results</a></li>
+        <li><a href="#individual-results" tabindex="0">Individual Results</a></li>
+        <li><a href="#gallery" tabindex="0">Gallery</a></li>
      </ul>
    </nav>
    <header>
       <!--Meet Info-->
        
-        <h1><a href="{link_url}">{link_text}</a></h1>
+        <h1><a href="{link_url}" tabindex="0">{link_text}</a></h1>
         <h2>{h2_text}</h2>
 </header>
    <main id = "main">
 
 
     <section class="summary" id = "summary">
-      <h2>Race Summary</h2>
+      <h2 tabindex="0">Race Summary</h2>
       {summary_text}
     </section>
 """
 
 
         # Start container for individual results
-        html_content += """<section id="team-results">\n
-        <h2>Team Results</h2>"""
+        html_content += """<section id="team-results" tabindex="0">\n
+        <h2 tabindex="0">Team Results</h2>"""
 
         # Process the remaining rows (after the first five)
         html_content += """<table>\n"""
@@ -84,8 +84,8 @@ def csv_to_html(csv_filename, output_folder):
                     table_start = False
                     html_content += "</table>\n"
                     html_content += """</section>\n
-                    <section id="individual-results">\n
-                    <h2>Individual Results</h2>"""
+                    <section id="individual-results" tabindex="0">\n
+                    <h2 tabindex="0">Individual Results</h2>"""
 
                 place = row[0]
                 grade = row[1]

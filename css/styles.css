@@ -1,4 +1,10 @@
 
+/* Global Focus Styles */
+a:focus, button:focus, input:focus, textarea:focus, [tabindex]:focus {
+  outline: 2px dashed #3399cc;
+  outline-offset: 4px;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -27,7 +33,11 @@ header h1 {
 header h1 a:hover {
   color: #0056b3;
 }
+header h1 a:focus{
+  outline: 2px dashed #3399cc;
+  outline-offset: 4px;
 
+}
 header h2 {
   margin: 0;
   font-size: 1.2rem;
@@ -37,8 +47,8 @@ header h2 {
 
 a[href="#main"] {
   position:absolute;
-  top: 20px;
-  right: 20px;
+  top: -9999px;
+  right: -9999px;
   margin: auto;
   z-index: 999;
   background-color: #ffffff;
@@ -48,15 +58,18 @@ a[href="#main"] {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+a[href= "#main"]:focus {
+  top:20px;
+  left:20px;
+  right: auto;
+  border: 3px solid #14244b;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
 
 /* Sidebar styles */
 nav {
   margin-top: 10px;
-  /* position: fixed; */
-  /* top: 0; */
-  /* left: 0; */
   width: 100%; 
-  /* height: 100%; */
   background: #3399cc;
   overflow-y: auto;
   transition: width 0.3s; 
@@ -64,12 +77,10 @@ nav {
   display: flex;
   align-items: center;
   margin: auto;
+  overflow: visible;
 }
 nav .hamburger {
   display: none;
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* height: 60%; */
   font-size: 1.5rem;
   color: white;
   cursor: pointer;
@@ -79,85 +90,27 @@ nav ul {
   margin: auto;
   display: flex;
   flex-direction: row;
-  /* align-items: flex-start; */
   list-style: none;
   justify-content:space-around;
 }
 
 nav ul li {
-  /* width: 100%; */
   margin: 0;
-  /* position: relative; */
 }
 
 nav ul li a {
   display: block;
-  /* width: 100%; */
   padding: 15px 20px;
-  color: white;
+  color: black;
+  text-decoration: none;
 }
 
 nav ul a:hover {
   background-color: #14244b;
-}
-
-
-
-/* Expanded width */
-/* nav:hover {
-  width: 200px; 
-} */
-/* Hide hamburger icon when expanded */
-/* nav:hover .hamburger {
-  display: none; 
-} */
-/* Show menu when expanded */
-/* nav:hover ul {
-  display: flex; 
-} */
-
-/* nav:hover ~ main,
-nav:hover ~ header,
-nav:hover ~ footer {
-  padding-left: 200px; 
-} */
-
-@media (max-width: 768px) {
-  /* nav {
-    width: 200px;
-  } */
-  /* Hide hamburger icon on larger screens */
-  nav .hamburger {
-    display: block; 
-  }
-/* Always show the menu on larger screens */
-  nav ul {
-    display: none; 
-    flex-direction: column;
-    width:100%;
-  }
-
-  /* body {
-    padding-left: 200px;
-  } */
-
-  /* nav:hover ~ main,
-  nav:hover ~ header,
-  nav:hover ~ footer {
-    padding-left: 200px;
-  } */
-  /* nav.active ul {
-    display: flex;
-    flex-direction: column;
-  } */
-  nav.show ul {
-    display: flex;
-    flex-direction:column
-}
+  color: white;
 }
 
 /* dropdown menu styles */
-/* Add position relative to .dropdown */
 .dropdown {
   position: relative;
 }
@@ -165,9 +118,9 @@ nav:hover ~ footer {
 .dropdown-menu {
   display: none; 
   position: absolute; 
-  left: 50%;
-  top: 0;
-  background: white; 
+  left: 0;
+  top: 100%;
+  background-color: white; 
   z-index: 1000;
   padding: 0;
   margin:0;
@@ -176,20 +129,64 @@ nav:hover ~ footer {
 }
 
 .dropdown-menu li {
-  width: 100px;
+  width: auto;
 }
 
 .dropdown-menu a {
   padding: 10px;
-  background: white;
-  color: black;
+  background: #14244b;
+  color: white;
   display:block;
+  text-align: center;
 }
 .dropdown-menu a:hover {
-  background: darkgrey;
+  background: #3399cc;
 }
 .dropdown:hover .dropdown-menu {
   display: block; 
+}
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  display: block; 
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+ 
+  nav .hamburger {
+    display: block; 
+  }
+  
+  nav ul {
+    display: none; 
+    flex-direction: column;
+    width:100%;
+  }
+
+  nav.show ul {
+    display: flex;
+    flex-direction:column;
+    width: 100%;
+}
+  .dropdown-menu{
+    display:none;
+    position:relative;
+    width:100%;
+    background:white;
+    padding:0;
+    margin: 0;
+    list-style: none;
+}
+  .dropdown:hover .dropdown-menu,
+  .dropdown:focus-within .dropdown-menu
+  .dropdown.show .dropdown-menu {
+    display: block; 
+}
+  nav ul li a {
+    width: 100%;
+}
 }
 
 /* Main and section styles */
@@ -247,14 +244,11 @@ h2 {
   border-radius: 8px;
   text-align: center;
   transition: background-color 0.3s ease, transform 0.3s ease;
-
 }
-
 .gallery img {
   width: 100%;
   margin-bottom: 10px;
 }
-
 
 /* Table styles */
 table {
@@ -291,8 +285,6 @@ tr:hover {
   background-color: lightgrey;
 }
 
-
-
 /* Individual results styles */
 #individual-results {
   display: flex;
@@ -309,7 +301,7 @@ tr:hover {
   margin-bottom: 20px;
   margin-top: 20 px;
 }
-  
+
 
 .athlete figure {
   display: block;
@@ -364,7 +356,7 @@ figcaption {
     text-align: left;
   }
   td::before {
-    content: attr(data-label); /* Displays data-label attribute */
+    content: attr(data-label); 
     font-weight: bold;
     width: 100%;
     display: inline-block;
@@ -456,67 +448,53 @@ header, footer, main, section,
   }
 }
 
+
 /* Prefers-color-scheme query */
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   body {
-    background-color: #121212;
+    background-color: #181818;
+    color: #e0e0e0;
+  }
+
+  header, footer, main, section {
+    background-color: #282828;
+    color: #e0e0e0;
+  }
+  main, section{
+    color:black;
+  }
+  header h2{
+    color:black;
+  }
+
+  a:hover, a:focus {
+    color: #a1c9fd;
+  }
+
+  nav ul a:hover, nav ul a:focus {
     color: #ffffff;
   }
 
-  header h1,
-  header h2,
-  a[href="#main"],
-  main section,
-  summary,
-  .athlete,
-  table,
-  th,
-  td,
-  figcaption {
-    background-color: #212121;
-    color: #ffffff;
-    border-color: #424242;
-  }
-
-  a[href="#main"] {
-    background-color: #3399cc;
-    color: #ffffff;
-    border-color: #3399cc;
-  }
-
-  a[href="#main"]:hover {
-    background-color: #ffffff;
-    color: #3399cc;
-  }
-
-  th {
-    background-color: #424242;
+  th, td {
+    border-color: #444;
   }
 
   tr:nth-child(odd) {
-    background-color: #383838;
+    background-color: #a7bfd0;
   }
 
   tr:hover {
-    background-color: #282828;
-  }
-
-  main section:hover {
     background-color: #333333;
   }
 
-  .athlete:hover {
-    background-color: #333333;
+  input, textarea {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+    border: 1px solid #555;
   }
-
-  .athlete img:hover {
-    transform: scale(1.05);
-  }
-} */
+}
 
 /* Footer styles */
 footer {
   text-align: center;
-  padding: 20px;
-  background: #f6f6f6;
 }
